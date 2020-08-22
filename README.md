@@ -18,9 +18,13 @@ KAVERPO,,004 010,X,X12-4010,Kaver Corp X12-4010 Purchase Order
 ```
 
 ### .INI
-[1]INVPO[2],,003[3]040,[4]X,X12-[5]3040,PO
-`INVPO,,003 040,X,X12-3040,PO and INV for Slippers 'n Socks, Inc.`
 
+```
+[1]INVPO[2],,003[3]040,[4]X,X12-[5]3040,PO
+```
+```
+`INVPO,,003 040,X,X12-3040,PO and INV for Slippers 'n Socks, Inc.`
+```
 1. The standard or implementation name (INVPO in the example above), generally the same as the filename of the SEF file.
 
 2. Reserved
