@@ -1,0 +1,158 @@
+.VER 1.6
+.INI
+KAVERPO,,004 030,X,X12-4030,Draft Standards Approved for Publication by ASC X12
+Procedures Review Board through October 1999
+.PRIVATE FORESIGHT
+.CTL *
+.TDVER 6382
+.DATE 02/24/100:15:04:53
+.PUBLIC
+.STD ,RE
+.SETS
+850=^+100[ST,M][BEG*1,M]+200[.CUR]+100[.REF,,>1][PER,,3][.TAX,,>1][.FOB,,>1][.CTP,,>1]
++50[.PAM,,10]+150[.CSH,,5]+50[.TC2,,>1]{:25[.SAC][.CUR]}[ITD,,>1]+100[DIS,,20]+50[.INC
+][.DTM,,10]+300[LIN,,5]+50[SI,,>1][PID,,200]+100[MEA,,40][.PWK,,25][.PKG,,200][TD1,,2]
+[TD5,,>1][TD3,,12][TD4,,5][.MAN,,10]+60[.PCT,,>1]+40[.CTB,,5]+50[.TXI,,>1]{:>1+5[LDT]+
+3[QTY,,>1]+2[MTX,,>1]+5[REF,,>1]}{:>1[AMT]+20[REF,,>1]+10[DTM]+20[.PCT,,>1]{:>1+10[.FA
+1][FA2,M,>1]}}{:1000[.N9]+20[DTM,,>1]+30[MTX,,>1]+50[PWK,,>1]+30[EFI,,>1]}{:1+20[&N1]+
+100[N2,,2]+50[.IN2,,>1][.N3,,2]+100[.N4,,>1]+50[.NX2,,>1][.REF,,12]+100[.PER,,>1]+50[.
+SI,,>1][.FOB]+100[.TD1,,2][.TD5,,12][.TD3,,12][.TD4,,5][.PKG,,200]}{:>1[.LM][LQ,M,>1]}
+{:>1[.SPI][REF,,5][DTM,,5][MTX,,>1]{:20[N1][N2,,2][N3,,2][N4][REF,,20][G61][MTX,,>1]}{
+:>1[CB1][REF,,20][DTM,,5][LDT][MTX,,>1]}}{:>1[.ADV][DTM,,>1][MTX,,>1]}^{:100000+100[PO
+1,M]+50[LIN,,>1]+30[SI,,>1]+20[CUR]+50[.CN1][.PO3,,25]{:>1+100[.CTP]+30[.CUR]}+20[.PAM
+,,10]+40[.MEA,,40]{:1000+10[PID*1]+100[MEA,,10]}[PWK,,25]+200[.PO4,,>1]+100[.REF,,>1][
+.PER,,3]{:25+200[.SAC]+50[.CUR]+20[.CTP]}+30[.IT8]+20[.CSH,,>1]+80[.ITD,,2]+100[.DIS,,
+20]+50[.INC][.TAX,,>1]+100[.FOB,,>1][.SDQ,,500][.IT3,,5][.DTM,,10]+250[.TC2,,>1]+50[.T
+D1]+100[.TD5,,12][.TD3,,12][.TD4,,5]+60[.PCT,,>1]+40[.MAN,,10]+90[.MTX,,>1]+10[.SPI,,>
+1][.TXI,,>1][.CTB,,>1]{:>1[.QTY][.SI,,>1]}{:200[.SCH][.TD1,,2][.TD5,,12][.TD3,,12][.TD
+4,,5][.REF,,>1]}{:200+50[.PKG][.MEA,,>1]}+100[.LS]{:>1+10[.LDT][.QTY,,>1][.MTX,,>1][.R
+EF,,3]{:>1[.LM][LQ,M,>1]}}[.LE]{:1000+30[.N9]+20[.DTM,,>1]+30[.MEA,,40]+50[.MTX,,>1][.
+PWK,,>1]+30[.EFI,,>1]}{:200+20[.N1]+100[.N2,,2]+50[.IN2,,>1][.N3,,2]+100[.N4]+30[.QTY,
+,>1]+20[.NX2,,>1]+50[.REF,,12]+100[.PER,,3]+50[.SI,,>1]+10[.DTM]+40[.FOB]+50[.SCH,,200
+][.TD1,,2]+100[.TD5,,12][.TD3,,12][.TD4,,5][.PKG,,200]{:>1+20[.LDT][.MAN,,10][.QTY,,5]
+[.MTX,,>1]+10[.REF,,3]}}{:1000[.SLN]+50[.MTX,,>1][.SI,,>1]+100[.PID,,1000][.PO3,,104]+
+50[.TC2,,>1]+80[.ADV,,>1]+20[.DTM,,10]+10[.CTP,,25][.PAM,,10][.PO4][.TAX,,3]{:>1+40[.N
+9]+10[.DTM,,>1][.MTX,,>1]}{:25[.SAC][.CUR][.CTP]}{:>1[.QTY][.SI,,>1]}{:10+50[.N1][.N2,
+,2][.IN2,,>1][.N3,,2]+100[.N4][.NX2,,>1][.REF,,12][.PER,,3]+50[.SI,,>1]}}{:>1[.AMT]+10
+0[.REF]+20[.PCT,,>1]}{:>1+80[.LM]+100[LQ,M,>1]}}^{:1+100[!CTT][AMT*1]}[SE,M]
+.SEGS
+AAA=[1073,M][559][901][889]
+ACD=[1636][650][1262]
+ACK=[668,M][380][355][374][373][326]{10[235][234]}[559][822][1271]+P0203C0405P0708P091
+0P1112P1314P1516P1718P1920P2122P2324P2526P2728C282729
+ACS=[610,M][150,M][352][146]
+.
+.(most segments omitted to save space)
+.
+ZR=[762,M][206,M][207,M][186][373][3][140][373]{2[1127]}{2[127]}[202]
+ZT=[214,M][206,M][207,M][186][373]+P0405
+.COMS
+C001=[355,M][1018][649][355][1018][649][355][1018][649][355][1018][649][355][1018][649
+],...------------,..&............
+C002=[704,M][704][704][704][704]
+C003=[235,M][234,M]{4[1339]}[352]
+C004=[1328,M]{3[1328]}
+C005=[1369,M]{4[1369]}
+C006=[1361,M]{4[1361]}
+C007=[522,M][522][1638][935][344][1637][935][352]
+C022=[1270,M][1271,M][1250][1251][782][380][799]+P0304
+.
+.(most composites omitted to save space)
+.
+C040=[128,M][127,M][128][127][128][127]+P0304P0506,..,....,..&.
+C041=[373,M][624]
+C042=[426,M][127]
+C043={2[1271,M]}[98]
+C045=[1321,M]{4[1321]}
+C046=[122,M]{4[122]}
+C050=[1675,M][1570,M][799,M][1565,M]{2[1675][1570][799][1565]}+P05060708P09101112
+.ELMS
+1=AN,1,13
+2=N0,1,6
+3=AN,1,60
+4=ID,3,3
+5=ID,3,5
+7=AN,6,17
+.
+..(most elements omitted to save space)
+.
+I61=ID,1,1
+I62=ID,1,1
+I63=ID,1,1
+I64=AN,2,6
+.CODES
+8=E,R
+9=C1,D1:D6,E1:E6,L1:L9,LA
+11=A:H,J,M,P:Y
+16=A:E,P
+23=2,A:L,N,P:Q,S:V,Z
+33=A,D:E,O:P,W
+39=A:E,I,S,Z
+40=20,2B,2D:2G,40,4B,AC,AF,AL,AP,AT,BC,BE:BH,BJ:BK,BO,BR,BX,CA:CD,CG:CN,CP:CX,CZ,DD,DF
+,DT,DX,ET,FH,FN,FP,FR:FT,FX,GS,HB:HC,HO:HP,HT,HV,HY,ID,IX,LO,LS,LU,NX,OB,OT,OV,PL,PP,P
+T:PU,RA,RC:RG,RI,RO,RR:RT,SA,SC:SD,SK:SL,SR:ST,SV,TA:TC,TF:TR,TT:TW,UA:UE,UL,UP,VA,VE,
+VL,VR:VT,WR,WY
+47=A,M
+48=1:4
+51=C,P
+52=1:9,10:17,G,V
+54=BY,FE,PP,SE,ZZ
+56=BB,CS,CY,DD,DR,HH,HL,HP,MD,NC,PH,PP,RD:RE,RR
+66=1:9,10:50,53:59,61:63,71:78,81:82,90:99,A,A1:A6,AA,AC:AE,AL,AP,BC:BE,BG,BP,BS,C,C1:
+C2,CA:CF,CI,CL:CM,CP,CR:CT,D,DG,DL,DN,DP,DS,EC,EH:EI,EP:ES,FA:FD,FI:FJ,FN,GA,GC,HC,HN,
+K,LC:LE,LI,LN,M3:M6,MA:MD,MI,MK:ML,MN,MP,MR,N,NA,NI,NO,OC,OP,PA:PC,PI,PP,PR,RA:RE,RT,S
+A,SD,SF,SI:SJ,SL,SP,ST,SV:SW,TC,TZ,UC,UL,UP,US,WR,XV,XX,ZC,ZN,ZY:ZZ%[9,92]+850/180///3
++850/41///3
+72=D,I,N
+.
+...(most elements omitted to save space)
+.
+I62=1,2,Z
+I63=1,2,3,4,5,6
+.VALREFS
+//ISA//6=DUNS
+850/182///1=RECVDOC
+850/185///2=REFID
+850/2///3=PO-NUM
+///310/=LOC-CODE
+.VALLISTS
+DUNS="Kaver DUNS number"
+'78-250-12250001
+LOC-CODE="Kaver Corp. regions"
+'Eastern division
+'Great Lakes N.
+'Great Lakes S.
+'Midwest 1
+'Midwest 2
+'Northeast N
+PO-NUM="Purchase Order Number"
+&^P98-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
+RECVDOC="Receiving Dock"
+'Loading Dock 3
+'Loading Dock 437
+REFID="Reference ID"
+&^REF[A-Z][A-Z][0-9][0-9][0-9]$
+.SEMREFS
+850/180///4=[N103DUNS'EQ'9:APPVALUE:DUNS:]
+850/1///=[:COMEXIT:CheckCTT.SetCheckCTTCount:]
+///1251/=[:COMEXIT:DateTime.ValidateDateTimeX12:]
+850/41///=[BEG08Invoice'EQ'IBM:USAGE:2:]
+.OBJVARS
+850/180///3=N103DUNS
+850/2///8=BEG08Invoice
+.TEXT,SETS
+850,0,Purchase Order for Andr\233 Leblanc
+850,3,This guideline goes into effect in June, 1999.
+850,4,Will the Eastern Division be ready for this by June? Coordinate with Pat.
+850~41,3,Name - Bill To
+850~72,4,Customer must use the assigned code for element 559. The sales and service
+division requires this information. \r\nCustomer must use the assigned code for
+element 235. The warehouse tracking software requires this information.
+850~180,3,Name - Ship To
+850~72~5,0,This element is optional for ASC X12 but mandatory for our company.
+850~72~5,1,Have we updated the old purchasing system for these codes? Check with
+Systems Support.
+850~72~5~PC~1~1,0,This is not an ASC X12 code but we prefer it since orders process
+faster if it is used.
+.TEXT,ELMS
+639~PC~1~1,0,Price Cap
