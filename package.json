@@ -1,0 +1,61 @@
+{
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "author": "SEE LICENSE",
+    "license": "MIT",
+    "files": [
+        "bin/",
+        "lib/",
+        "src/"
+    ],
+    "name": "xsef-edi-lint",
+    "version": "1.0.0",
+    "description": "remove unnessary control character in the document.",
+    "main": "lib/controlCharacters.js",
+    "scripts": {
+        "test": "textlint-scripts test",
+        "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+        "precommit": "lint-staged",
+        "postcommit": "git reset",
+        "prepublish": "npm run --if-present build",
+        "build": "textlint-scripts build",
+        "watch": "textlint-scripts build --watch"
+    },
+    "keywords": [
+        "edi",
+        "edifact",
+        "supply chain",
+        "X12",
+        "data interchange",
+        "standard exchange format"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/freight-trust/xsef.git"
+    },
+    "bugs": {
+        "url": "https://github.com/freight-trust/xsef/issues"
+    },
+    "homepage": "https://github.com/freight-trust/xsef",
+    "devDependencies": {
+        "husky": "^0.14.3",
+        "lint-staged": "^6.0.0",
+        "prettier": "^1.9.2",
+        "textlint-scripts": "^1.4.1"
+    },
+    "prettier": {
+        "printWidth": 120,
+        "tabWidth": 4
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx,css}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "dependencies": {
+        "execall": "^1.0.0"
+    }
+}

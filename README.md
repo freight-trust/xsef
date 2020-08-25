@@ -1,7 +1,6 @@
 # eXtended Standard Exchange Format
 
-> Specification for a modern SEF implementation 
-
+> Specification for a modern SEF implementation
 
 ## Abstract
 
@@ -22,28 +21,30 @@ KAVERPO,,004 010,X,X12-4010,Kaver Corp X12-4010 Purchase Order
 ```
 [1]INVPO[2],,003[3]040,[4]X,X12-[5]3040,PO
 ```
+
 ```
 `INVPO,,003 040,X,X12-3040,PO and INV for Slippers 'n Socks, Inc.`
 ```
+
 1. The standard or implementation name (INVPO in the example above), generally the same as the filename of the SEF file.
 
 2. Reserved
 
 3. The Functional Group Version, Release and Industry code which will identify the standard in any Functional
-Group Envelope Header Segment. Each code is separated by a space. In the example, there is no industry code.
-With an industry code, this field might contain: 003 030 UCS
+   Group Envelope Header Segment. Each code is separated by a space. In the example, there is no industry code.
+   With an industry code, this field might contain: 003 030 UCS
 
+4) The responsible agency code, which identifies the standards organization in the Functional Group Header:
+   GC = GENDOD
+   T = for T.D.C.C. (EDIA)
+   TD = TRADACOMS
+   UN = for UN/EDIFACT
+   X = for ASC X12 (DISA)
 
-4. The responsible agency code, which identifies the standards organization in the Functional Group Header:
-GC = GENDOD
-T = for T.D.C.C. (EDIA)
-TD = TRADACOMS
-UN = for UN/EDIFACT
-X = for ASC X12 (DISA)
+5) The standard on which this implementation guidelines is based.
 
-5. The standard on which this implementation guidelines is based.
+6) The description (title) of the implementation guideline.
 
-6. The description (title) of the implementation guideline.
 ### .VER
 
 The .VER section identifies the version and release of SEF, which is
@@ -58,13 +59,13 @@ that is useful to themselves but is of no interest to others. The
 .PUBLIC section marks the end of the private section.
 
 ### .STD
+
 .STD is only included for these standards:
 • Newer EDIFACT standards in which groups have position
 numbers
 • Newer EDIFACT and X12 standards that have repeating
 elements
 • Fixed-length standards like GENCOD.
-
 
 ### .SETS
 
@@ -103,4 +104,3 @@ lengths.
 
 The .CODES section is a list of each element that has code values,
 along with its code values. It also provides information about code sets.
-
