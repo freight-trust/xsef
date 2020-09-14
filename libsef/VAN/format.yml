@@ -1,0 +1,7 @@
+SEF:
+  Type: array
+  Properties:
+    SegID: .SEGS
+    Tags:
+      - Key: SEGMENT
+        Value: AAA=[1073,M][559][901][889]
