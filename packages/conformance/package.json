@@ -1,9 +1,0 @@
-{
-    "name": "conformance",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "dependencies": {
-        "@textlint-rule/textlint-rule-no-invalid-control-character": "^1.2.0"
-    }
-}

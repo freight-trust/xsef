@@ -1,3 +1,0 @@
-#!/bin/bash
-npx textlint --rule @textlint-rule/no-invalid-control-character README.md
-
