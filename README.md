@@ -2,7 +2,20 @@
 
 > Specification for a modern SEF implementation
 
-## Abstract
+## Overview
+
+The eXtended Standard Exchange Format ('XSEF') is an open-standard file format - files ending with the extension
+.xsef.cfg - that defines the format and the format and implementation guideline for proprietary and standard EDI documents.
+
+XSEF holds key advantages over other file formats in that it is designed for EDI
+
+XSEF files are immediately useable by both users and computers
+They're small files and are easily transmitted easily via the web
+You can edit them with either a text editor or an XSEF manager
+XSEF is an open standard, so you can create and distribute XSEF files 
+without special permissions or royalties under the Mozilla Public License 2.0.
+
+## Usage
 
 The sections may appear in any order, with these exceptions: the .VER, if present, must be first. The .INI section
 must be the first section in the file if there is no .VER, or the second section if there is a .VER. Nothing may appear
@@ -104,3 +117,7 @@ lengths.
 
 The .CODES section is a list of each element that has code values,
 along with its code values. It also provides information about code sets.
+
+## License
+SPDX-License-Idnetifier: MPL-2.0
+
