@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>XSEF.cfg SPECIFICATION 1.0.0+ALPHA &#8212; XSEF Specification  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>[MOZILLA PUBLIC LICENSE 2.0]</p>
+<div class="section" id="xsef-cfg-specification-1-0-0-alpha">
+<h1><a class="toc-backref" href="#id3">XSEF.cfg SPECIFICATION 1.0.0+ALPHA</a><a class="headerlink" href="#xsef-cfg-specification-1-0-0-alpha" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#xsef-cfg-specification-1-0-0-alpha" id="id3">XSEF.cfg SPECIFICATION 1.0.0+ALPHA</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction-informative" id="id4">Introduction (informative)</a></p></li>
+<li><p><a class="reference internal" href="#terminology" id="id5">Terminology</a></p></li>
+<li><p><a class="reference internal" href="#file-format" id="id6">File Format</a></p></li>
+<li><p><a class="reference internal" href="#glob-expressions" id="id7">Glob Expressions</a></p></li>
+<li><p><a class="reference internal" href="#file-processing" id="id8">File Processing</a></p></li>
+<li><p><a class="reference internal" href="#supported-pairs" id="id9">Supported Pairs</a></p></li>
+<li><p><a class="reference internal" href="#suggestions-for-transaction-set-developers" id="id10">Suggestions for Transaction Set Developers</a></p></li>
+<li><p><a class="reference internal" href="#versioning" id="id11">Versioning</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction-informative">
+<h2><a class="toc-backref" href="#id4">Introduction (informative)</a><a class="headerlink" href="#introduction-informative" title="Permalink to this headline">¶</a></h2>
+<p><em>All content in this document is normative unless marked “(informative)”.</em></p>
+<p>Version/Release/Industry Identifier (VRI) Code
+The Version, Release, and Industry Identifier Code are prefilled with values from the
+base standard. If this information is not available the fields are blank.</p>
+<p>For X12
+Leave the Version, Release, and Industry Identifier Code
+values as they are unless you are on a standards board or are
+developing a new guideline or MIG for a particular industry.
+Version and Release are usually 3 digits. If present, Industry
+Identifier Code is up to 6 alphanumeric characters. Together,
+these three fields are placed in Element 480 in the GS (group
+header) segment.</p>
+<p>For EDIFACT
+Version and release are both usually 1-3 alphanumeric
+characters. Example: D93A has version D and release 93A.
+UN-921 has version 92 and release 1. These fields are in the
+UNH and UNG segments.</p>
+<p>For TRADACOMS
+By default, version is 1 and Industry Code is ANA (Article
+Numbering Assn.). Since there is no release, this field is set to
+0 (zero).</p>
+</div>
+<div class="section" id="terminology">
+<h2><a class="toc-backref" href="#id5">Terminology</a><a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<p>In XSEF:</p>
+<ul class="simple">
+<li><p>“xsef” (usually named <code class="docutils literal notranslate"><span class="pre">.xsef.cfg</span></code>) store settings,
+and must conform to this specification.</p></li>
+<li><p>“Core” parse files conforming to this specification.</p></li>
+<li><p>“Plugins” apply settings to files being edited, and use cores to
+determine the settings.</p></li>
+</ul>
+<p>A conforming core or Transaction Set must pass the tests in the
+<a class="reference external" href="TODO">core-tests repository</a> or <a class="reference external" href="TODO">Transaction Set-tests repository</a>, respectively.</p>
+<dl class="simple">
+<dt><em>(informative)</em> Plugins can be delineated into ‘meta’ plugins, e.g. ‘X12’ or ‘EDIFACT’</dt><dd><p>with versions of those meta plugins being actually the ones used.</p>
+</dd>
+</dl>
+<p>// TODO</p>
+</div>
+<div class="section" id="file-format">
+<h2><a class="toc-backref" href="#id6">File Format</a><a class="headerlink" href="#file-format" title="Permalink to this headline">¶</a></h2>
+<p>XSEF are files in an INI-like file format. XSEF is an implementation of the existing
+SEF format, or STANDARD EXCHANGE FORMAT (.SEF).</p>
+<p>XSEF/SEF are Rules for DEFINING EDI transactions</p>
+<p>In an XSEF file, all beginning
+whitespace on each line is considered irrelevant. Each line must be one of the
+following:</p>
+<ul class="simple">
+<li><p>Blank: contains only whitespace characters.</p></li>
+<li><dl class="simple">
+<dt>Comment: starts with a <code class="docutils literal notranslate"><span class="pre">;</span></code> or a <code class="docutils literal notranslate"><span class="pre">#</span></code>.</dt><dd><ul>
+<li><p>Inserting a <code class="docutils literal notranslate"><span class="pre">#</span></code> or <code class="docutils literal notranslate"><span class="pre">;</span></code> after non-whitespace characters in a line
+(i.e., inline) shall neither be parsed as a comment nor as part of the
+section name, pair (defined below) key or value in which it was inserted. This may change
+in the future; thus, is not recommended.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Section Header: starts with a <code class="docutils literal notranslate"><span class="pre">[</span></code> and ends with a <code class="docutils literal notranslate"><span class="pre">]</span></code>.</dt><dd><ul>
+<li><p>May not use any non-whitespace characters outside of the surrounding
+brackets.</p></li>
+<li><p>May contain any characters between the square brackets (e.g.,
+<code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code> and even spaces and tabs are allowed).</p></li>
+<li><p>Forward slashes (<code class="docutils literal notranslate"><span class="pre">/</span></code>) are used as path separators.</p></li>
+<li><p>Backslashes (<code class="docutils literal notranslate"><span class="pre">\\</span></code>) are not allowed as path separators (even on Windows).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Key-Value Pair (or Pair): contains a key and a value, separated by an <cite>=</cite>.</dt><dd><ul>
+<li><p>Key: the part before the first <cite>=</cite> (trimmed of whitespace).</p></li>
+<li><p>Value: The part after the first <cite>=</cite> (trimmed of whitespace).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Any line that is not one of the above is invalid.</p>
+<p>XSEF files should be UTF-8 encoded, with LF  line separators.</p>
+<p><cite>CRLF can be used but is not favoured</cite></p>
+<blockquote>
+<div><p>XSEF defines the following terms:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Trailer:</p></li>
+<li><p>Segment Name: the string between the beginning <code class="docutils literal notranslate"><span class="pre">[</span></code> and the ending <code class="docutils literal notranslate"><span class="pre">]</span></code>.</p></li>
+<li><p>Group: the lines starting from a Section Header until the beginning of
+the next Section Header or the end of the file.</p></li>
+</ul>
+</div>
+<div class="section" id="glob-expressions">
+<h2><a class="toc-backref" href="#id7">Glob Expressions</a><a class="headerlink" href="#glob-expressions" title="Permalink to this headline">¶</a></h2>
+<p>Section names in XSEF files are filepath globs, similar to the format
+accepted by <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>. They support pattern matching through Unix
+shell-style wildcards. These filepath globs recognize the following as
+special characters for wildcard matching:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Special Characters</p></th>
+<th class="head"><p>Matching</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>any string of characters, except path separators (<code class="docutils literal notranslate"><span class="pre">/</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p>any string of characters</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>any single character, except path separators (<code class="docutils literal notranslate"><span class="pre">/</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[seq]</span></code></p></td>
+<td><p>any single character in seq</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[!seq]</span></code></p></td>
+<td><p>any single character not in seq</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{s1,s2,s3}</span></code></p></td>
+<td><p>any of the strings given (separated by commas, can be nested)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{num1..num2}</span></code></p></td>
+<td><p>any integer numbers between <code class="docutils literal notranslate"><span class="pre">num1</span></code> and <code class="docutils literal notranslate"><span class="pre">num2</span></code>, where <code class="docutils literal notranslate"><span class="pre">num1</span></code> and <code class="docutils literal notranslate"><span class="pre">num2</span></code>
+can be either positive or negative</p></td>
+</tr>
+</tbody>
+</table>
+<p>The backslash character (<code class="docutils literal notranslate"><span class="pre">\\</span></code>) can be used to escape a character so it is
+not interpreted as a special character.</p>
+<p>The maximum length of a section name is 4096 characters. All sections
+exceeding this limit are ignored.</p>
+</div>
+<div class="section" id="file-processing">
+<h2><a class="toc-backref" href="#id8">File Processing</a><a class="headerlink" href="#file-processing" title="Permalink to this headline">¶</a></h2>
+<p>When a filename is given to XSEF a search is performed in the
+directory of the given file and all parent directories for an XSEF
+file (named “.XSEF” by default). Non-existing directories are treated
+as if they exist and are empty. All found XSEF files are
+searched for sections with section names matching the given filename. The
+search shall stop if an XSEF file is found with the <code class="docutils literal notranslate"><span class="pre">root</span></code>
+key set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in the preamble or when reaching the root
+filesystem directory.</p>
+<p>Files are read top to bottom and the most recent rules found take
+precedence. If multiple XSEF files have matching sections, the rules
+from the closer XSEF file are read last, so pairs in closer
+files take precedence.</p>
+</div>
+<div class="section" id="supported-pairs">
+<h2><a class="toc-backref" href="#id9">Supported Pairs</a><a class="headerlink" href="#supported-pairs" title="Permalink to this headline">¶</a></h2>
+<p>XSEF file sections contain key-value pairs separated by an
+equal sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>). With the exception of the <code class="docutils literal notranslate"><span class="pre">root</span></code> key, all pairs MUST be
+located under a section to take effect. XSEF Transaction Sets shall ignore
+unrecognized keys and invalid/unsupported values for those keys.</p>
+<p>Here is the list of all keys defined by this version of this specification,
+and the supported values associated with them:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Supported values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">indent_style</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">tab</span></code> or <code class="docutils literal notranslate"><span class="pre">space</span></code> to use hard tabs or soft tabs respectively. The
+values are case insensitive.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">indent_size</span></code></p></td>
+<td><p>Set to a whole number defining the number of columns used for each
+indentation level and the width of soft tabs (when supported). If this
+equals <code class="docutils literal notranslate"><span class="pre">tab</span></code>, the <code class="docutils literal notranslate"><span class="pre">indent_size</span></code> shall be set to the tab size, which
+should be <code class="docutils literal notranslate"><span class="pre">tab_width</span></code> (if specified); else, the tab size set by the
+editor. The values are case insensitive.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tab_width</span></code></p></td>
+<td><p>Set to a whole number defining the number of columns used to represent
+a tab character. This defaults to the value of <code class="docutils literal notranslate"><span class="pre">indent_size</span></code> and should
+not usually need to be specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">end_of_line</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">lf</span></code>, <code class="docutils literal notranslate"><span class="pre">cr</span></code>, or <code class="docutils literal notranslate"><span class="pre">crlf</span></code> to control how line breaks are
+represented. The values are case insensitive.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">charset</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">latin1</span></code>, <code class="docutils literal notranslate"><span class="pre">utf-8</span></code>, <code class="docutils literal notranslate"><span class="pre">utf-8-bom</span></code>, <code class="docutils literal notranslate"><span class="pre">utf-16be</span></code> or <code class="docutils literal notranslate"><span class="pre">utf-16le</span></code> to
+control the character set. Use of <code class="docutils literal notranslate"><span class="pre">utf-8-bom</span></code> is discouraged.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trim_trailing_whitespace</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to remove all whitespace characters preceding newline
+characters in the file and <code class="docutils literal notranslate"><span class="pre">false</span></code> to ensure it doesn’t.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">insert_final_newline</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> ensure file ends with a newline when saving and <code class="docutils literal notranslate"><span class="pre">false</span></code>
+to ensure it doesn’t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">root</span></code></p></td>
+<td><p>Must be specified in the preamble. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to stop the
+<code class="docutils literal notranslate"><span class="pre">.XSEF</span></code> file search on the current file. The value is case
+insensitive.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For any pair, a value of <code class="docutils literal notranslate"><span class="pre">unset</span></code> removes the effect of that
+pair, even if it has been set before. For example, add <code class="docutils literal notranslate"><span class="pre">indent_size</span> <span class="pre">=</span>
+<span class="pre">unset</span></code> to undefine the <code class="docutils literal notranslate"><span class="pre">indent_size</span></code> pair (and use editor defaults).</p>
+<p>Pair keys are case insensitive. All keys are lowercased after parsing.
+The maximum length of a pair key is 50 characters and the maximum length
+of a pair value is 255 characters. Any key or value beyond these limits
+shall be ignored.</p>
+</div>
+<div class="section" id="suggestions-for-transaction-set-developers">
+<h2><a class="toc-backref" href="#id10">Suggestions for Transaction Set Developers</a><a class="headerlink" href="#suggestions-for-transaction-set-developers" title="Permalink to this headline">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">|</span></a>SEG     “^UNB”     InterchangeHeader       M 1 1 ACC 1     T F “UNB Interchange Header” CUT-ON-(+)
+||SEG    “”          Sender                 M 1 1 ACC 1     R W “UNB-S002 composite data” CUT-ON-(:)
+|||GRP   “”           Identifier            M 1 1 ACC 1     R W “UNB-0004 - Sender identifier &amp; Qualifier”
+||D      “(.*)”      ApplicationReference   O 0 1 ACC 1     R W “UNB-0026 - APPLICATION REFERENCE” ASMATCHED [1..14]
+||D      “(.*)”      PriorityCode           O 0 1 ACC 1     R W “UNB-0029 - PROCESSING PRIORITY CODE” ALPHA [1..1]
+||D      “(.*)”      AckRequest             O 0 1 ACC 1     R W “UNB-0031 - ACKNOWLEDGEMENT REQUEST” NUMERIC [1..1]
+||D      “(.*)”      AgreementId            O 0 1 ACC 1     R W “UNB-0032 - COMMUNICATIONS AGREEMENT ID” ASMATCHED [1..35]</p>
+</div>
+<div class="section" id="versioning">
+<h2><a class="toc-backref" href="#id11">Versioning</a><a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h2>
+<p><em>XSEF UTILIZES SEMVER</em></p>
+<p>This specification has a version, tagged in the <a class="reference external" href="TODO">specification repository</a>.
+Each specification version corresponds to the same version in the
+<a class="reference external" href="TODO">core-tests repository</a>.</p>
+<p>x</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">XSEF Specification</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, FreightTrust and Clearing.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
