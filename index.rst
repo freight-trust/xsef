@@ -3,7 +3,7 @@
     
 [MOZILLA PUBLIC LICENSE 2.0]
 
-[PROJECT_SPECIFICATION]
+XSEF.cfg SPECIFICATION 1.0.0+ALPHA
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. contents:: Table of Contents
@@ -13,22 +13,47 @@ Introduction (informative)
 
 *All content in this document is normative unless marked "(informative)".*
 
-{INTRODUCTION_CONTENT}
+Version/Release/Industry Identifier (VRI) Code
+The Version, Release, and Industry Identifier Code are prefilled with values from the
+base standard. If this information is not available the fields are blank.
+
+For X12
+Leave the Version, Release, and Industry Identifier Code
+values as they are unless you are on a standards board or are
+developing a new guideline or MIG for a particular industry.
+Version and Release are usually 3 digits. If present, Industry
+Identifier Code is up to 6 alphanumeric characters. Together,
+these three fields are placed in Element 480 in the GS (group
+header) segment.
+
+For EDIFACT
+Version and release are both usually 1-3 alphanumeric
+characters. Example: D93A has version D and release 93A.
+UN-921 has version 92 and release 1. These fields are in the
+UNH and UNG segments.
+
+For TRADACOMS
+By default, version is 1 and Industry Code is ANA (Article
+Numbering Assn.). Since there is no release, this field is set to
+0 (zero).
 
 
 Terminology
 ===========
 
-In [PROJECT_NAME]:
+In XSEF:
 
-- "$FOO" (usually named ``.foo``) store settings,
+- "xsef" (usually named ``.xsef.cfg``) store settings,
   and must conform to this specification.
-- "$BAR" parse files conforming to this specification.
+- "Core" parse files conforming to this specification.
+- "Plugins" apply settings to files being edited, and use cores to
+  determine the settings.
 
 A conforming core or Transaction Set must pass the tests in the
 `core-tests repository`_ or `Transaction Set-tests repository`_, respectively.
 
-*(informative)* [INFORMATIVE]
+*(informative)* Plugins can be delineated into 'meta' plugins, e.g. 'X12' or 'EDIFACT'
+ with versions of those meta plugins being actually the ones used.
 
 // TODO
 
@@ -63,7 +88,9 @@ following:
 
 Any line that is not one of the above is invalid.
 
-XSEF files should be UTF-8 encoded, with LF or CRLF line separators.
+XSEF files should be UTF-8 encoded, with LF  line separators.
+
+`CRLF can be used but is not favoured`
 
  XSEF defines the following terms:
 
@@ -182,7 +209,15 @@ shall be ignored.
 Suggestions for Transaction Set Developers
 =================================
 
-TODO.
+|SEG     "^UNB"     InterchangeHeader       M 1 1 ACC 1     T F "UNB Interchange Header" CUT-ON-(+)
+||SEG    ""          Sender                 M 1 1 ACC 1     R W "UNB-S002 composite data" CUT-ON-(:) 
+|||GRP   ""           Identifier            M 1 1 ACC 1     R W "UNB-0004 - Sender identifier & Qualifier"
+||D      "(.*)"      ApplicationReference   O 0 1 ACC 1     R W "UNB-0026 - APPLICATION REFERENCE" ASMATCHED [1..14]
+||D      "(.*)"      PriorityCode           O 0 1 ACC 1     R W "UNB-0029 - PROCESSING PRIORITY CODE" ALPHA [1..1]
+||D      "(.*)"      AckRequest             O 0 1 ACC 1     R W "UNB-0031 - ACKNOWLEDGEMENT REQUEST" NUMERIC [1..1]
+||D      "(.*)"      AgreementId            O 0 1 ACC 1     R W "UNB-0032 - COMMUNICATIONS AGREEMENT ID" ASMATCHED [1..35]
+
+
 
 Versioning
 ==========
