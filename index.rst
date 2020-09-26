@@ -1,9 +1,9 @@
 ..  Copyright (c) 2020, FreightTrust and Clearing Corporation
     All rights reserved.
-    
-[MOZILLA PUBLIC LICENSE 2.0]
+   
+.. SPDX-License-Identifier: MPL-2.0
 
-XSEF.cfg SPECIFICATION 1.0.0+ALPHA
+XSEF SPECIFICATION 1.0.1+ALPHA
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. contents:: Table of Contents
@@ -216,6 +216,151 @@ Suggestions for Transaction Set Developers
 ||D      "(.*)"      PriorityCode           O 0 1 ACC 1     R W "UNB-0029 - PROCESSING PRIORITY CODE" ALPHA [1..1]
 ||D      "(.*)"      AckRequest             O 0 1 ACC 1     R W "UNB-0031 - ACKNOWLEDGEMENT REQUEST" NUMERIC [1..1]
 ||D      "(.*)"      AgreementId            O 0 1 ACC 1     R W "UNB-0032 - COMMUNICATIONS AGREEMENT ID" ASMATCHED [1..35]
+
+
+Interchange Segment Specifications
+------------------------------------
+
+Interchange
+Segment Specifications
+
+
+Basic Interchange Segments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Interchange Segment
+-------------------
+Specifications
+
+
+Segment Specifications
+```````````````````````````
+
+ 
+Interchange Segment
+-------------------
+Specifications
+Segment Specifications 
+
+Specifications for the interchange segments are provided in the
+segment directory.
+
+
+-------------------
+Specifications
+Segment Specifications:
+
+
+Interchange Control Header Segment (ISA)
+`````````````````````````````````````````````
+
+
+Interchange Segment
+-------------------
+Specifications  Interchange Control Header Segment (ISA)
+
+
+Purpose
+--------
+To start and identify an interchange of zero or more functional groups
+and interchange-related control segments.
+
+Interchange Segment Specifications
+
+Interchange Control Header Segment (ISA)
+============================================
+
+The actual values of the data element separator, component element
+separator, repetition separator, and segment terminator for this
+interchange are set by the interchange control header. For a
+particular interchange, the value at the fourth character position of
+the interchange control header is the data element separator, and the
+value of the last character position is the segment terminator. The
+extent of this particular usage of the data element separator,
+component element separator, and the segment terminator is from this
+header to, and including, the next interchange trailer. The
+interchange control number value in this header must match the value
+in the same data element in the IEA segment.
+
+
+Interchange Segment
+-------------------
+
+Interchange Control Header Segment (ISA)
+============================================
+
+
+In order to provide sufficient discrimination for the acknowledgment
+process to operate reliably and to ensure that audit trails are
+unambiguous, the combination of interchange sender's qualifier and ID
+(ISA05, ISA06), interchange receiver's qualifier and ID (ISA07, ISA08)
+and the interchange control number value (ISA13) shall by themselves
+be unique within a reasonably extended time frame whose boundaries
+shall be defined by trading partner agreement. Because at some point
+it may be necessary to reuse a sequence of control numbers, the
+Interchange Date and Time may serve as an additional discriminant only
+to differentiate interchange identity over the longest possible time
+frame.
+
+
+Interchange Segment
+-------------------
+Interchange Control Header Segment (ISA)
+
+
+Interchange Control Trailer Segment (IEA)
+============================================
+
+ 
+Interchange Segment
+-------------------
+Specifications
+Interchange Control Trailer Segment (IEA)
+
+
+Purpose:
+To define the end of an interchange of zero or more functional groups
+and interchange-related control segments.
+
+
+Interchange Segment
+-------------------
+Specifications 
+Interchange Control Trailer Segment (IEA)
+
+The interchange control number in this trailer must match the value in
+the same data element in the corresponding ISA segment.
+
+
+Interchange Segment
+-------------------
+Specifications 
+
+Interchange Control Trailer Segment (IEA)
+
+
+Interchange Acknowledgment Segment (TA1)
+============================================
+
+ 
+Interchange Segment
+-------------------
+Specifications ta1ta1_1n 
+Interchange Acknowledgment Segment (TA1)
+
+
+Purpose:
+To report the status of the processing of an interchange header and
+trailer by the addressed receiver or the non-delivery by a network
+provider.
+
+
+Interchange Segment
+-------------------
+Specifications
+Interchange Acknowledgment Segment (TA1):
+
 
 
 
