@@ -11,7 +11,7 @@
         "src/"
     ],
     "name": "xsef-edi-lint",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "remove unnessary control character in the document.",
     "main": "lib/controlCharacters.js",
     "scripts": {
