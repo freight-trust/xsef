@@ -1,6 +1,6 @@
 {
   "name": "@freight-trust/xsef-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "XSEF CLI Tool",
   "bin": {
     "xsef": "bin/index.js"
