@@ -1,9 +1,9 @@
-- id: 'BAK'
+- id: "BAK"
   name: Beginning Segment for Purchase Order Acknowledgment
   values:
-  - { idRef: '353', usage: M }
-  - { idRef: '587', usage: M }
-  - { idRef: '324', usage: M }
-  - { idRef: '373', usage: M }
-  - { idRef: '328', usage: O }
-  - { idRef: '326', usage: O }
+      - { idRef: "353", usage: M }
+      - { idRef: "587", usage: M }
+      - { idRef: "324", usage: M }
+      - { idRef: "373", usage: M }
+      - { idRef: "328", usage: O }
+      - { idRef: "326", usage: O }

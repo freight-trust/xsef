@@ -1,23 +1,23 @@
-- id: '850'
+- id: "850"
   name: Purchase Order
   class: PO
   heading:
-  - { idRef: 'ST', position: '0100', usage: M }
-  - { idRef: 'BEG', position: '0200', usage: M }
-  - { idRef: 'CUR', position: '0400', usage: O }
-  - { idRef: 'REF', position: '0500', usage: O, count: '>1' }
-  - { idRef: 'PER', position: '0600', usage: O, count: 3 }
-  - { idRef: 'TAX', position: '0700', usage: O, count: '>1' }
-  - { idRef: 'FOB', position: '0800', usage: O, count: '>1' }
-  - { idRef: 'CTP', position: '0900', usage: O, count: '>1' }
-  - { idRef: 'PAM', position: '0950', usage: O, count: 10 }
-  - { idRef: 'CSH', position: '1100', usage: O, count: 5 }
-  - { idRef: 'TC2', position: '1150', usage: O, count: '>1' }
-  - groupId: 'SAC'
-    usage: O
-    count: 25
-    items:
-    - { idRef: 'SAC', position: '1200', usage: O }
-    - { idRef: 'CUR', position: '1250', usage: O }
-  - { idRef: 'ITD', position: '1300', usage: O, count: '>1' }
-  - { idRef: 'DIS', position: '1400', usage: O, count: 20 }
+      - { idRef: "ST", position: "0100", usage: M }
+      - { idRef: "BEG", position: "0200", usage: M }
+      - { idRef: "CUR", position: "0400", usage: O }
+      - { idRef: "REF", position: "0500", usage: O, count: ">1" }
+      - { idRef: "PER", position: "0600", usage: O, count: 3 }
+      - { idRef: "TAX", position: "0700", usage: O, count: ">1" }
+      - { idRef: "FOB", position: "0800", usage: O, count: ">1" }
+      - { idRef: "CTP", position: "0900", usage: O, count: ">1" }
+      - { idRef: "PAM", position: "0950", usage: O, count: 10 }
+      - { idRef: "CSH", position: "1100", usage: O, count: 5 }
+      - { idRef: "TC2", position: "1150", usage: O, count: ">1" }
+      - groupId: "SAC"
+        usage: O
+        count: 25
+        items:
+            - { idRef: "SAC", position: "1200", usage: O }
+            - { idRef: "CUR", position: "1250", usage: O }
+      - { idRef: "ITD", position: "1300", usage: O, count: ">1" }
+      - { idRef: "DIS", position: "1400", usage: O, count: 20 }

@@ -12,7 +12,7 @@ XSEF holds key advantages over other file formats in that it is designed for EDI
 XSEF files are immediately useable by both users and computers
 They're small files and are easily transmitted easily via the web
 You can edit them with either a text editor or an XSEF manager
-XSEF is an open standard, so you can create and distribute XSEF files 
+XSEF is an open standard, so you can create and distribute XSEF files
 without special permissions or royalties under the Mozilla Public License 2.0.
 
 ## Usage
@@ -119,5 +119,5 @@ The .CODES section is a list of each element that has code values,
 along with its code values. It also provides information about code sets.
 
 ## License
-SPDX-License-Idnetifier: MPL-2.0
 
+SPDX-License-Idnetifier: MPL-2.0

@@ -1,32 +1,32 @@
 {
-  "name": "@freight-trust/xsef-cli",
-  "version": "1.0.2",
-  "description": "XSEF CLI Tool",
-  "bin": {
-    "xsef": "bin/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freight-trust/xsef-cli.git"
-  },
-  "keywords": [
-    "cli",
-    "boohee"
-  ],
-  "author": "freight-trust",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/freight-trust/xsef-cli/issues"
-  },
-  "homepage": "https://github.com/freight-trust/xsef-cli#readme",
-  "dependencies": {
-    "chalk": "^2.4.1",
-    "cli-table": "^0.3.1",
-    "commander": "^2.16.0",
-    "download-git-repo": "^1.0.2",
-    "handlebars": "^4.0.11",
-    "inquirer": "^6.0.0",
-    "metalsmith": "^2.3.0",
-    "ora": "^1.2.0"
-  }
+    "name": "@freight-trust/xsef-cli",
+    "version": "1.0.2",
+    "description": "XSEF CLI Tool",
+    "bin": {
+        "xsef": "bin/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/freight-trust/xsef-cli.git"
+    },
+    "keywords": [
+        "cli",
+        "boohee"
+    ],
+    "author": "freight-trust",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/freight-trust/xsef-cli/issues"
+    },
+    "homepage": "https://github.com/freight-trust/xsef-cli#readme",
+    "dependencies": {
+        "chalk": "^2.4.1",
+        "cli-table": "^0.3.1",
+        "commander": "^2.16.0",
+        "download-git-repo": "^1.0.2",
+        "handlebars": "^4.0.11",
+        "inquirer": "^6.0.0",
+        "metalsmith": "^2.3.0",
+        "ora": "^1.2.0"
+    }
 }

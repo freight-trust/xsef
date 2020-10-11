@@ -1,43 +1,43 @@
 {
-  "name": "xsef",
-  "version": "1.0.0",
-  "description": "Parse SEF/XSEF config files",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freight-trust/xsef.git"
-  },
-  "bugs": {
-    "email": "corporate@freighttrust.com",
-    "src": "https://github.com/freight-trust/xsef/issues"
-  },
-  "scripts": {
-    "test": "jest",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "build": "tsc"
-  },
-  "keywords": [
-    "ini",
-    "parse"
-  ],
-  "author": "SEE LICENSE",
-  "license": "SEE LICENSE IN LICENSE",
-  "devDependencies": {
-    "@types/jest": "^26.0.14",
-    "@typescript-eslint/parser": "^4.2.0",
-    "eslint-auto-fix": "^1.0.3",
-    "ts-jest": "^26.4.0",
-    "tslint": "^6.1.3",
-    "tslint-config-airbnb": "^5.11.2",
-    "typescript": "4.0.3"
-  },
-  "moduleFileExtensions": [
-    "ts",
-    "tsx",
-    "js",
-    "jsx",
-    "json",
-    "node"
-  ]
+    "name": "xsef",
+    "version": "1.0.0",
+    "description": "Parse SEF/XSEF config files",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/freight-trust/xsef.git"
+    },
+    "bugs": {
+        "email": "corporate@freighttrust.com",
+        "src": "https://github.com/freight-trust/xsef/issues"
+    },
+    "scripts": {
+        "test": "jest",
+        "lint": "tslint -c tslint.json 'src/**/*.ts'",
+        "build": "tsc"
+    },
+    "keywords": [
+        "ini",
+        "parse"
+    ],
+    "author": "SEE LICENSE",
+    "license": "SEE LICENSE IN LICENSE",
+    "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint-auto-fix": "^1.0.3",
+        "ts-jest": "^26.4.0",
+        "tslint": "^6.1.3",
+        "tslint-config-airbnb": "^5.11.2",
+        "typescript": "4.0.3"
+    },
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ]
 }
