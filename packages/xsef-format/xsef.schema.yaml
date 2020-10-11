@@ -1,0 +1,457 @@
+---
+"$schema": http://json-schema.org/draft-04/schema#
+type: object
+properties:
+  form:
+    type: string
+  version:
+    type: string
+  imports:
+    type: array
+    items:
+    - type: string
+  structures:
+    type: array
+    items:
+    - type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        class:
+          type: string
+      required:
+      - id
+      - name
+      - class
+    - type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        class:
+          type: string
+        heading:
+          type: array
+          items:
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: integer
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: integer
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: integer
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              groupId:
+                type: string
+              usage:
+                type: string
+              count:
+                type: integer
+              items:
+                type: array
+                items:
+                - type: object
+                  properties:
+                    idRef:
+                      type: string
+                    position:
+                      type: string
+                    usage:
+                      type: string
+                  required:
+                  - idRef
+                  - position
+                  - usage
+                - type: object
+                  properties:
+                    idRef:
+                      type: string
+                    position:
+                      type: string
+                    usage:
+                      type: string
+                  required:
+                  - idRef
+                  - position
+                  - usage
+            required:
+            - groupId
+            - usage
+            - count
+            - items
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: string
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+          - type: object
+            properties:
+              idRef:
+                type: string
+              position:
+                type: string
+              usage:
+                type: string
+              count:
+                type: integer
+            required:
+            - idRef
+            - position
+            - usage
+            - count
+      required:
+      - id
+      - name
+      - class
+      - heading
+    - type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        values:
+          type: array
+          items:
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+      required:
+      - id
+      - name
+      - values
+    - type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        values:
+          type: array
+          items:
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+          - type: object
+            properties:
+              idRef:
+                type: string
+              usage:
+                type: string
+            required:
+            - idRef
+            - usage
+      required:
+      - id
+      - name
+      - values
+  elements:
+    type: array
+    items:
+    - type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        minLength:
+          type: integer
+        maxLength:
+          type: integer
+      required:
+      - id
+      - name
+      - type
+      - minLength
+      - maxLength
+    - type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        minLength:
+          type: integer
+        maxLength:
+          type: integer
+      required:
+      - id
+      - name
+      - type
+      - minLength
+      - maxLength
+    - type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        minLength:
+          type: integer
+        maxLength:
+          type: integer
+      required:
+      - id
+      - name
+      - type
+      - minLength
+      - maxLength
+required:
+- form
+- version
+- imports
+- structures
+- elements

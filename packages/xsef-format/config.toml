@@ -1,0 +1,178 @@
+form = 'X12'
+version = '005010'
+imports = [
+    '/x12/005010/basedefs.esl',
+]
+
+[[structures]]
+id = '850'
+name = 'Purchase Order'
+class = 'PO'
+
+[[structures]]
+id = '850'
+name = 'Purchase Order'
+class = 'PO'
+
+[[structures.heading]]
+idRef = 'ST'
+position = '0100'
+usage = 'M'
+
+[[structures.heading]]
+idRef = 'BEG'
+position = '0200'
+usage = 'M'
+
+[[structures.heading]]
+idRef = 'CUR'
+position = '0400'
+usage = 'O'
+
+[[structures.heading]]
+idRef = 'REF'
+position = '0500'
+usage = 'O'
+count = '>1'
+
+[[structures.heading]]
+idRef = 'PER'
+position = '0600'
+usage = 'O'
+count = 3
+
+[[structures.heading]]
+idRef = 'TAX'
+position = '0700'
+usage = 'O'
+count = '>1'
+
+[[structures.heading]]
+idRef = 'FOB'
+position = '0800'
+usage = 'O'
+count = '>1'
+
+[[structures.heading]]
+idRef = 'CTP'
+position = '0900'
+usage = 'O'
+count = '>1'
+
+[[structures.heading]]
+idRef = 'PAM'
+position = '0950'
+usage = 'O'
+count = 10
+
+[[structures.heading]]
+idRef = 'CSH'
+position = '1100'
+usage = 'O'
+count = 5
+
+[[structures.heading]]
+idRef = 'TC2'
+position = '1150'
+usage = 'O'
+count = '>1'
+
+[[structures.heading]]
+groupId = 'SAC'
+usage = 'O'
+count = 25
+
+[[structures.heading.items]]
+idRef = 'SAC'
+position = '1200'
+usage = 'O'
+
+[[structures.heading.items]]
+idRef = 'CUR'
+position = '1250'
+usage = 'O'
+
+[[structures.heading]]
+idRef = 'ITD'
+position = '1300'
+usage = 'O'
+count = '>1'
+
+[[structures.heading]]
+idRef = 'DIS'
+position = '1400'
+usage = 'O'
+count = 20
+
+[[structures]]
+id = 'BAK'
+name = 'Beginning Segment for Purchase Order Acknowledgment'
+
+[[structures.values]]
+idRef = '353'
+usage = 'M'
+
+[[structures.values]]
+idRef = '587'
+usage = 'M'
+
+[[structures.values]]
+idRef = '324'
+usage = 'M'
+
+[[structures.values]]
+idRef = '373'
+usage = 'M'
+
+[[structures.values]]
+idRef = '328'
+usage = 'O'
+
+[[structures.values]]
+idRef = '326'
+usage = 'O'
+
+[[structures]]
+id = 'C022'
+name = 'Health Care Code Information'
+
+[[structures.values]]
+idRef = '1270'
+usage = 'M'
+
+[[structures.values]]
+idRef = '1271'
+usage = 'M'
+
+[[structures.values]]
+idRef = '1250'
+usage = 'C'
+
+[[structures.values]]
+idRef = '1251'
+usage = 'C'
+
+[[structures.values]]
+idRef = '782'
+usage = 'O'
+
+[[elements]]
+id = '1'
+name = 'Route Code'
+type = 'AN'
+minLength = 1
+maxLength = 13
+
+[[elements]]
+id = '100'
+name = 'Currency Code'
+type = 'ID'
+minLength = 3
+maxLength = 3
+
+[[elements]]
+id = '1000'
+name = 'Service Characteristics Qualifier'
+type = 'AN'
+minLength = 2
+maxLength = 3

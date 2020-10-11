@@ -1,0 +1,94 @@
+[xsef]
+id = '850'
+name = 'Purchase Order'
+class = 'PO'
+
+[[heading]]
+idRef = 'ST'
+position = '0100'
+usage = 'M'
+
+[[heading]]
+idRef = 'BEG'
+position = '0200'
+usage = 'M'
+
+[[heading]]
+idRef = 'CUR'
+position = '0400'
+usage = 'O'
+
+[[heading]]
+idRef = 'REF'
+position = '0500'
+usage = 'O'
+count = '>1'
+
+[[heading]]
+idRef = 'PER'
+position = '0600'
+usage = 'O'
+count = 3
+
+[[heading]]
+idRef = 'TAX'
+position = '0700'
+usage = 'O'
+count = '>1'
+
+[[heading]]
+idRef = 'FOB'
+position = '0800'
+usage = 'O'
+count = '>1'
+
+[[heading]]
+idRef = 'CTP'
+position = '0900'
+usage = 'O'
+count = '>1'
+
+[[heading]]
+idRef = 'PAM'
+position = '0950'
+usage = 'O'
+count = 10
+
+[[heading]]
+idRef = 'CSH'
+position = '1100'
+usage = 'O'
+count = 5
+
+[[heading]]
+idRef = 'TC2'
+position = '1150'
+usage = 'O'
+count = '>1'
+
+[[heading]]
+groupId = 'SAC'
+usage = 'O'
+count = 25
+
+[[heading.items]]
+idRef = 'SAC'
+position = '1200'
+usage = 'O'
+
+[[heading.items]]
+idRef = 'CUR'
+position = '1250'
+usage = 'O'
+
+[[heading]]
+idRef = 'ITD'
+position = '1300'
+usage = 'O'
+count = '>1'
+
+[[heading]]
+idRef = 'DIS'
+position = '1400'
+usage = 'O'
+count = 20
