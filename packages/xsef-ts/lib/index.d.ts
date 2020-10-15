@@ -1,5 +1,5 @@
-import { $Errors } from './errors';
-export * from './errors';
+import { $Errors } from "./errors";
+export * from "./errors";
 export interface IParseConfig {
     comment?: string;
     delimiter?: string;
