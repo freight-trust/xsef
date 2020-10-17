@@ -5,10 +5,10 @@
  */
 
 const program = require("commander"),
-    res = require("../utils"),
+    res = require("./utils"),
     resolveComand = res.resolveComand;
 
-program.version(require("../package.json").version).usage("<command> [schema-name]");
+program.version(require("./package.json").version).usage("<command> [schema-name]");
 
 program
     .command("add")
